@@ -1,7 +1,3 @@
-TODO
-14
-ข้อ 17 b, g
-
 จุดประสงค์
 1. เข้าใจ `command execution`
 2. เข้าใจ `Quoting`
@@ -583,6 +579,8 @@ find: ‘/home/std/dummy/lab6/mediawiki-1.26.2/tests2’: Permission denied
 files count = 2093
 ```
 
+<hr>
+
 ให้ `alias f='find ~dummy/lab6/mediawiki-1.26.2 -name "*[0-9]*" -type f'`
 
 #### f. ให้สํารองข้อมลูที่พบด้วยคําสั่ง `tar` และไม่เเสดงความผิดพลาดทางจอภาพ
@@ -599,6 +597,49 @@ tar: Removing leading `/' from hard link targets
 f 2>/dev/null | xargs -I "fileList" tar -f ~/lab6.4/backup.tar --append "fileList"
 ```
 
+<hr>
+
+#### g. ให้สําเนาไฟล์ที่พบไปไว้ใน `~/lab6.4/log` ใช้ `–exec` และไม่แสดงความผิดพลาดทางจอภาพ
+
+```bash
+f 2>/dev/null -exec tar -vf backupG.tar  --append {} \;
+```
+
+<hr>
+
+#### h. ให้สําเนาไฟล์ที่พบไปไว้ใน `~/lab6.4/log` ใช้ `xargs` และไม่แสดงความผิดพลาดทางจอภาพ
+```bash
+f 2>/dev/null | xargs -I "fileList" tar -f ~/lab6.4/backup.tar --append "fileList"
+```
+
+<hr>
+
+### 17. จงใช้ `Redirection` `Piping` `Quoting` `Command` `Executions` `Command` `Substitutions` เพื่อทํางานดังนี้
+
+#### b นับไฟล์ที่ลงท้ายด้วย `.c`
+
+<ins> command </ins>
+```bash
+find ~dummy/ -name "*.c" -type f 2>/dev/null | wc -l
+```
+
+<ins>output</ins>
+
+``` 
+57
+```
+
+#### g นับเฉพาะไดเรคทอรี่ ที่อยู่ใน `~`
+
+<ins> command </ins>
+```bash
+find ~ -name "*" -type d 2>/dev/null | wc -l
+```
+
+<ins>output</ins>
+5913
+
+
 
 
 
@@ -610,7 +651,7 @@ Note :
 3. ใช้ `>>` สำหรับการ `append` output เข้าไปในไฟล์ โดยไม่เขียนทับ
 4. `/dev/tty` is a special file for input and output to user terminal regardless of redirection
 5. `/dev/null` ใช้ทิ้งผลลัพธ์ที่ไม่ต้องการจาก `command` หรือ `processes`
-6. `/etc` = `editable text configuration
+6. `/etc` = `editable text configuration`
 7. `/dev` = `device`
 8. `/usr` = `unix system resource`
 9. `xargs` = เเปลงจาก `stdinput` $\xrightarrow{\text{convert}}$ `arguement`
