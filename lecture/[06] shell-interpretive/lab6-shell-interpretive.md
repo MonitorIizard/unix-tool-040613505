@@ -583,6 +583,23 @@ find: ‘/home/std/dummy/lab6/mediawiki-1.26.2/tests2’: Permission denied
 files count = 2093
 ```
 
+ให้ `alias f='find ~dummy/lab6/mediawiki-1.26.2 -name "*[0-9]*" -type f'`
+
+#### f. ให้สํารองข้อมลูที่พบด้วยคําสั่ง `tar` และไม่เเสดงความผิดพลาดทางจอภาพ
+
+error
+```
+tar: Removing leading `/' from member names
+tar: Removing leading `/' from hard link targets
+```
+คำอธิบาย เป็น security feature จากทาง GNU ไม่ให้ Archive file ที่เป้น Absolute path
+
+<ins>command</ins>
+```bash
+f 2>/dev/null | xargs -I "fileList" tar -f ~/lab6.4/backup.tar --append "fileList"
+```
+
+
 
 
 <hr>
