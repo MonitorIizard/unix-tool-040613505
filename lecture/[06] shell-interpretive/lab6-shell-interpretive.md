@@ -560,8 +560,28 @@ find: ‘/home/std/dummy/lab6/mediawiki-1.26.2/tests2’: Permission denied
 `2>/dev/null`
 
 #### e. จาก d. ให้แสดงลําดับที่ และจํานวนไฟล์ที่พบแสดงทาง `StandardOutput` และเก็บลงไฟล์
-`f | `
 
+<ins>command</ins>
+
+```bash
+ f 2>/dev/null | nl | tee ~/lab6.4/found.log /dev/tty | echo "files count = $(wc -l)" | tee -a ~/lab6.4/found.log 
+```
+
+<ins>output</ins>
+
+```bash
+  1	/home/std/cs6520159/f1
+  2	/home/std/cs6520159/t4
+  3	/home/std/cs6520159/cs6520159/t1~
+.
+.
+.
+  2090	/home/std/cs6520159/public_html/quiz/q1sample-main/quizDir/web2/media/images/Picture3.PNG
+  2091	/home/std/cs6520159/public_html/quiz/q1sample-main/quizDir/web2/media/images/Picture2.PNG
+  2092	/home/std/cs6520159/t2
+  2093	/home/std/cs6520159/f2
+files count = 2093
+```
 
 
 
