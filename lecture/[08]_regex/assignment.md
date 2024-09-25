@@ -72,7 +72,7 @@ grep -v '202.44.40' last-log
 
 <hr>
 
-7. Display line number that contain `a` in a word.
+7. Display line number that contain `a` in a **word**.
 
 
 ![alt text](explaination-4.png)
