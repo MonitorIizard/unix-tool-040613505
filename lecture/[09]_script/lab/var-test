@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "Script name: $0"
+echo "Number of arguments: $#"
+echo "All Parameters: $*"
+echo “\$1 = $1 \$2 = $2 \$11 = $11”
+for arg in $*
+do
+echo "$arg"
+done
